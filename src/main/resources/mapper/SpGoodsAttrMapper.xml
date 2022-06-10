@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itx.mapper.SpGoodsAttrMapper">
+
+    <resultMap id="BaseResultMap" type="com.itx.pojo.SpGoodsAttr">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="goodsId" column="goods_id" jdbcType="INTEGER"/>
+            <result property="attrId" column="attr_id" jdbcType="SMALLINT"/>
+            <result property="attrValue" column="attr_value" jdbcType="VARCHAR"/>
+            <result property="addPrice" column="add_price" jdbcType="DECIMAL"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,goods_id,attr_id,
+        attr_value,add_price
+    </sql>
+</mapper>

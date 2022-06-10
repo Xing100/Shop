@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itx.mapper.SpExpressMapper">
+
+    <resultMap id="BaseResultMap" type="com.itx.pojo.SpExpress">
+            <id property="expressId" column="express_id" jdbcType="INTEGER"/>
+            <result property="orderId" column="order_id" jdbcType="INTEGER"/>
+            <result property="expressCom" column="express_com" jdbcType="VARCHAR"/>
+            <result property="expressNu" column="express_nu" jdbcType="VARCHAR"/>
+            <result property="createTime" column="create_time" jdbcType="INTEGER"/>
+            <result property="updateTime" column="update_time" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        express_id,order_id,express_com,
+        express_nu,create_time,update_time
+    </sql>
+</mapper>

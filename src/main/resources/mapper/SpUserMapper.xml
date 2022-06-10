@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itx.mapper.SpUserMapper">
+
+    <resultMap id="BaseResultMap" type="com.itx.pojo.SpUser">
+            <id property="userId" column="user_id" jdbcType="INTEGER"/>
+            <result property="username" column="username" jdbcType="VARCHAR"/>
+            <result property="qqOpenId" column="qq_open_id" jdbcType="CHAR"/>
+            <result property="password" column="password" jdbcType="CHAR"/>
+            <result property="userEmail" column="user_email" jdbcType="VARCHAR"/>
+            <result property="userEmailCode" column="user_email_code" jdbcType="CHAR"/>
+            <result property="isActive" column="is_active" jdbcType="OTHER"/>
+            <result property="userSex" column="user_sex" jdbcType="OTHER"/>
+            <result property="userQq" column="user_qq" jdbcType="VARCHAR"/>
+            <result property="userTel" column="user_tel" jdbcType="VARCHAR"/>
+            <result property="userXueli" column="user_xueli" jdbcType="OTHER"/>
+            <result property="userHobby" column="user_hobby" jdbcType="VARCHAR"/>
+            <result property="userIntroduce" column="user_introduce" jdbcType="VARCHAR"/>
+            <result property="createTime" column="create_time" jdbcType="INTEGER"/>
+            <result property="updateTime" column="update_time" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        user_id,username,qq_open_id,
+        password,user_email,user_email_code,
+        is_active,user_sex,user_qq,
+        user_tel,user_xueli,user_hobby,
+        user_introduce,create_time,update_time
+    </sql>
+</mapper>

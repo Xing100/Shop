@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itx.mapper.SpReport3Mapper">
+
+    <resultMap id="BaseResultMap" type="com.itx.pojo.SpReport3">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="rp3Src" column="rp3_src" jdbcType="VARCHAR"/>
+            <result property="rp3Count" column="rp3_count" jdbcType="INTEGER"/>
+            <result property="rp3Date" column="rp3_date" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,rp3_src,rp3_count,
+        rp3_date
+    </sql>
+</mapper>

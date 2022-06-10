@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itx.mapper.SpManagerMapper">
+
+    <resultMap id="BaseResultMap" type="com.itx.pojo.SpManager">
+            <id property="mgId" column="mg_id" jdbcType="INTEGER"/>
+            <result property="mgName" column="mg_name" jdbcType="VARCHAR"/>
+            <result property="mgPwd" column="mg_pwd" jdbcType="CHAR"/>
+            <result property="mgTime" column="mg_time" jdbcType="INTEGER"/>
+            <result property="roleId" column="role_id" jdbcType="TINYINT"/>
+            <result property="mgMobile" column="mg_mobile" jdbcType="VARCHAR"/>
+            <result property="mgEmail" column="mg_email" jdbcType="VARCHAR"/>
+            <result property="mgState" column="mg_state" jdbcType="TINYINT"/>
+    </resultMap>
+
+    <resultMap id="UserresultMap" type="com.itx.pojo.SpManager">
+        <id property="mgId" column="mg_id" jdbcType="INTEGER"/>
+        <result property="mgName" column="mg_name"></result>
+        <result property="mgEmail" column="mg_email"></result>
+        <result property="mgMobile" column="mg_mobile"></result>
+        <result property="mgState" column="mg_state"></result>
+        <collection property="spRole" ofType="com.itx.pojo.SpRole">
+            <result property="roleName" column="rname"></result>
+        </collection>
+
+    </resultMap>
+    <sql id="Base_Column_List">
+        mg_id,mg_name,mg_pwd,
+        mg_time,role_id,mg_mobile,
+        mg_email,mg_state
+    </sql>
+<!--    <select id="getUserPage" resultMap="UserresultMap">-->
+<!--        SELECT-->
+<!--	    sm.`mg_id`,-->
+<!--        sm.`mg_name`,-->
+<!--        sm.`mg_email`,-->
+<!--        sm.`mg_mobile`,-->
+<!--        sm.`mg_state`,-->
+<!--        sr.`role_name` AS rname-->
+<!--        FROM-->
+<!--        sp_manager AS sm-->
+<!--        LEFT JOIN-->
+<!--        sp_role AS sr-->
+<!--        ON-->
+<!--        sm.`role_id`=sr.`role_id`-->
+<!--    </select>-->
+
+    <select id="getUserPage" resultMap="UserresultMap">
+        select * from
+(
+SELECT
+	sm.`mg_id`,
+        sm.`mg_name`,
+        sm.`mg_email`,
+        sm.`mg_mobile`,
+        sm.`mg_state`,
+        sr.`role_name` AS rname
+        FROM
+        sp_manager AS sm
+        LEFT JOIN
+        sp_role AS sr
+        ON
+        sm.`role_id`=sr.`role_id`
+) as manager
+<where>
+    <if test="query!=''">
+        mg_name like '${query}%'
+    </if>
+</where>
+
+    </select>
+
+
+<!--
+select manager.* from
+(
+SELECT
+	sm.`mg_id`,
+        sm.`mg_name`,
+        sm.`mg_email`,
+        sm.`mg_mobile`,
+        sm.`mg_state`,
+        sr.`role_name` AS rname
+        FROM
+        sp_manager AS sm
+        LEFT JOIN
+        sp_role AS sr
+        ON
+        sm.`role_id`=sr.`role_id`
+) as manager
+
+where mg_name like 'a%'
+
+-->
+
+    <update id="updataStateByid">
+        UPDATE sp_manager SET mg_state=#{mgState} WHERE mg_id=#{mgid};
+    </update>
+    <select id="name">
+        <if test="naem!=null"></if>
+    </select>
+
+</mapper>

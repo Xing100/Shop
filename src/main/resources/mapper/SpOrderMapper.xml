@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itx.mapper.SpOrderMapper">
+
+    <resultMap id="BaseResultMap" type="com.itx.pojo.SpOrder">
+            <id property="orderId" column="order_id" jdbcType="INTEGER"/>
+            <result property="userId" column="user_id" jdbcType="INTEGER"/>
+            <result property="orderNumber" column="order_number" jdbcType="VARCHAR"/>
+            <result property="orderPrice" column="order_price" jdbcType="DECIMAL"/>
+            <result property="orderPay" column="order_pay" jdbcType="OTHER"/>
+            <result property="isSend" column="is_send" jdbcType="OTHER"/>
+            <result property="tradeNo" column="trade_no" jdbcType="VARCHAR"/>
+            <result property="orderFapiaoTitle" column="order_fapiao_title" jdbcType="OTHER"/>
+            <result property="orderFapiaoCompany" column="order_fapiao_company" jdbcType="VARCHAR"/>
+            <result property="orderFapiaoContent" column="order_fapiao_content" jdbcType="VARCHAR"/>
+            <result property="consigneeAddr" column="consignee_addr" jdbcType="VARCHAR"/>
+            <result property="payStatus" column="pay_status" jdbcType="OTHER"/>
+            <result property="createTime" column="create_time" jdbcType="INTEGER"/>
+            <result property="updateTime" column="update_time" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        order_id,user_id,order_number,
+        order_price,order_pay,is_send,
+        trade_no,order_fapiao_title,order_fapiao_company,
+        order_fapiao_content,consignee_addr,pay_status,
+        create_time,update_time
+    </sql>
+</mapper>

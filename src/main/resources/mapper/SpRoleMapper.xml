@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itx.mapper.SpRoleMapper">
+
+    <resultMap id="BaseResultMap" type="com.itx.pojo.SpRole">
+            <id property="roleId" column="role_id" jdbcType="SMALLINT"/>
+            <result property="roleName" column="role_name" jdbcType="VARCHAR"/>
+            <result property="psIds" column="ps_ids" jdbcType="VARCHAR"/>
+            <result property="psCa" column="ps_ca" jdbcType="VARCHAR"/>
+            <result property="roleDesc" column="role_desc" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        role_id,role_name,ps_ids,
+        ps_ca,role_desc
+    </sql>
+</mapper>

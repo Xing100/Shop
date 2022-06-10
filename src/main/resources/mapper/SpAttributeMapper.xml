@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itx.mapper.SpAttributeMapper">
+
+    <resultMap id="BaseResultMap" type="com.itx.pojo.SpAttribute">
+            <id property="attrId" column="attr_id" jdbcType="SMALLINT"/>
+            <result property="attrName" column="attr_name" jdbcType="VARCHAR"/>
+            <result property="catId" column="cat_id" jdbcType="SMALLINT"/>
+            <result property="attrSel" column="attr_sel" jdbcType="OTHER"/>
+            <result property="attrWrite" column="attr_write" jdbcType="OTHER"/>
+            <result property="attrVals" column="attr_vals" jdbcType="VARCHAR"/>
+            <result property="deleteTime" column="delete_time" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        attr_id,attr_name,cat_id,
+        attr_sel,attr_write,attr_vals,
+        delete_time
+    </sql>
+</mapper>

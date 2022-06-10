@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itx.mapper.SpGoodsCatsMapper">
+
+    <resultMap id="BaseResultMap" type="com.itx.pojo.SpGoodsCats">
+            <id property="catId" column="cat_id" jdbcType="INTEGER"/>
+            <result property="parentId" column="parent_id" jdbcType="INTEGER"/>
+            <result property="catName" column="cat_name" jdbcType="VARCHAR"/>
+            <result property="isShow" column="is_show" jdbcType="TINYINT"/>
+            <result property="catSort" column="cat_sort" jdbcType="INTEGER"/>
+            <result property="dataFlag" column="data_flag" jdbcType="TINYINT"/>
+            <result property="createTime" column="create_time" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        cat_id,parent_id,cat_name,
+        is_show,cat_sort,data_flag,
+        create_time
+    </sql>
+</mapper>

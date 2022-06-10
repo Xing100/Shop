@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itx.mapper.SpPermissionMapper">
+
+    <resultMap id="BaseResultMap" type="com.itx.pojo.SpPermission">
+            <id property="psId" column="ps_id" jdbcType="SMALLINT"/>
+            <result property="psName" column="ps_name" jdbcType="VARCHAR"/>
+            <result property="psPid" column="ps_pid" jdbcType="SMALLINT"/>
+            <result property="psC" column="ps_c" jdbcType="VARCHAR"/>
+            <result property="psA" column="ps_a" jdbcType="VARCHAR"/>
+            <result property="psLevel" column="ps_level" jdbcType="OTHER"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        ps_id,ps_name,ps_pid,
+        ps_c,ps_a,ps_level
+    </sql>
+
+
+
+<!--   将column(数据库查询的字段)映射到 property(实体类字段)-->
+
+    <resultMap id="Menus" type="com.itx.pojo.SpPermission">
+        <id property="psId" column="id1"/>
+        <result property="psName" column="authName1"/>
+        <result property="path" column="path1"/>
+        <collection property="children" ofType="com.itx.pojo.SpPermission">
+            <id property="psId" column="id2"/>
+            <result property="psName" column="authName2"/>
+<!--            这里的path是当前数据表中没有的字段，但是可以通过在实体类中添加path字段然后将查询的字段映射到path上-->
+            <result property="path" column="path2"/>
+        </collection>
+    </resultMap>
+    <select id="getMenusList" resultMap = "Menus">
+        SELECT * FROM (
+SELECT
+sp1.ps_name AS authName1,
+sp1.ps_id AS id1,
+pa.ps_api_path AS path1,
+sp2.ps_id AS id2,
+sp2.ps_name AS authName2,
+pa.ps_api_path AS path2
+
+FROM
+sp_permission AS sp1,
+sp_permission AS sp2,
+sp_permission_api AS pa
+WHERE
+sp2.`ps_pid`=sp1.`ps_id`
+AND
+sp2.`ps_id` = pa.`ps_id`
+AND
+sp1.ps_pid=0
+
+)AS manager
+WHERE id2 NOT BETWEEN 156 AND 158
+    </select>
+</mapper>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itx.mapper.SpOrderGoodsMapper">
+
+    <resultMap id="BaseResultMap" type="com.itx.pojo.SpOrderGoods">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="orderId" column="order_id" jdbcType="INTEGER"/>
+            <result property="goodsId" column="goods_id" jdbcType="INTEGER"/>
+            <result property="goodsPrice" column="goods_price" jdbcType="DECIMAL"/>
+            <result property="goodsNumber" column="goods_number" jdbcType="TINYINT"/>
+            <result property="goodsTotalPrice" column="goods_total_price" jdbcType="DECIMAL"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,order_id,goods_id,
+        goods_price,goods_number,goods_total_price
+    </sql>
+</mapper>
